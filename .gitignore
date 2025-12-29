@@ -4,3 +4,10 @@
 # Raw data files
 raw_data/*.csv
 
+# Python cache
+models/__pycache__/
+__pycache__/
+
+# Model exports
+models/models_export.json
+

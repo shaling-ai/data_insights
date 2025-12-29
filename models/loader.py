@@ -156,11 +156,11 @@ class DataLoader:
             if session.from_user_uuid:
                 sessions_by_user[session.from_user_uuid].append(session)
         
-        # Sort sessions by created_at and assign to users
+        # Sort sessions by begin_at and assign to users
         for user in self.users:
             user_sessions = sessions_by_user.get(user.uuid, [])
-            # Sort by created_at timestamp
-            user_sessions.sort(key=lambda x: x.created_at or x.id)
+            # Sort by begin_at timestamp (session start time)
+            user_sessions.sort(key=lambda x: x.begin_at or datetime.min)
             user.sessions = user_sessions
     
     def get_user_by_uuid(self, uuid: UUID) -> User | None:
