@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Raw data files
+raw_data/*.csv
+
